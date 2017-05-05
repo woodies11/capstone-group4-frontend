@@ -1,7 +1,5 @@
 # RestfulKaidee
 
-This project was generated with [angular-cli][1] version 1.0.0-beta.28.3.
-
 ## Front End - Getting Start
 ### Angular CLI
 Make sure you have `npm` installed.
