@@ -1,0 +1,47 @@
+<div class="catalogue-box">
+  <ul *ngIf="products">
+    <!-- change the limit to specify the maximum number of listing to show -->
+    <li
+      *ngFor="let p of products | slice:0:ITEM_LIMIT;"
+      [routerLink]="['/product', p?.iid]"
+    >
+      <div
+        class="product-image"
+        [ngStyle]="{
+        'background-image': 'url(' + ((p?.img_urls != null) ? p.img_urls[0] : 'undefined') + ')'
+        }"
+      >
+
+      </div>
+
+      <div class="product-detail">
+        <div class="my-row no-wrap">
+          <span>{{p?.name}}</span>
+        </div>
+        <div class="my-row">
+          <div class="left">
+            <div class="seller-name">
+              <span class="no-wrap">
+                by <a routerLink="/chat">{{p?.seller?.name}}</a>
+              </span>
+            </div>
+            <div class="rating">
+              <rating-star [rate]="p?.seller?.rating"></rating-star>
+            </div>
+          </div>
+
+          <div class="right">
+            <span class="price">฿{{p?.price}}</span>
+          </div>
+        </div>
+        <div class="my-row no-wrap">
+          <span class="location">{{p?.location?.province}} {{p?.location?.city}}</span>
+        </div>
+
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="!products || products.length <= 0">
+    Nothing to show
+  </div>
+</div>

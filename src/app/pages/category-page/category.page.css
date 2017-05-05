@@ -1,0 +1,16 @@
+.top-bar {
+  display: block;
+}
+
+.top-bar h1 {
+  display: inline-block;
+}
+
+.filter {
+  float: right;
+  display: inline-block;
+}
+
+.filter select {
+  border: 1px solid gray;
+}

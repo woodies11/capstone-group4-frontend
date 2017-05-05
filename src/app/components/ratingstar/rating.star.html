@@ -1,0 +1,9 @@
+<div class="rating" [class.active]="active">
+  <span
+    *ngFor="let n of [5,4,3,2,1]"
+    (click)="starClicked(n)"
+    [class.selected]="n==rate"
+  >
+    ☆
+  </span>
+</div>

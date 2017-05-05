@@ -1,0 +1,48 @@
+<nav class="navbar navbar-fixed-top ct-flex-in" id="navbar-default">
+      <div class="container-fluid">
+
+        <a routerLink="/home" class="navbar-brand">
+          <img class="logo" src="/assets/img/Kaidee-logo-300.png" alt="kaidee-logo">
+        </a>
+
+        <div>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <button class="btn btn-default" [routerLink]="['/categories']">
+                <span class="glyphicon glyphicon-th"></span> หมวดหมู่
+              </button>
+            </li>
+            <li>
+              <button class="btn btn-default" [routerLink]="'/chat'">
+                <span class="glyphicon glyphicon-user"></span> พูดคุย
+              </button>
+            </li>
+            <li><div id="btn-menu-container" class="ct-flex-in ct-flex-cn">
+              <btn-menu
+                class="ct-flex-in"
+                id="menu-button"
+                (onClickEvent)="toggleDrawer($event)"
+                [isMenuExpanded]="isDrawerExpanded"
+              ></btn-menu>
+            </div></li>
+          </ul>
+
+          <form class="navbar-form center-text" role="search">
+            <div class="form-group left-inner-addon" id="search-area">
+              <i class="glyphicon glyphicon-search"></i>
+              <input type="text" class="form-control" id="search-bar" placeholder="ค้นหา">
+            </div>
+          </form>
+
+          <nav-drawer class="nav-drawer" [isExpanded]="isDrawerExpanded"></nav-drawer>
+
+        </div>
+      </div>
+
+
+  </nav>
+  <div
+    id="overlay-bg"
+    [class.show]="isDrawerExpanded"
+    (click)="isDrawerExpanded = !isDrawerExpanded"
+  ></div>

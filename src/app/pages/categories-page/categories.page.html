@@ -1,0 +1,19 @@
+<div class="catalogue-box">
+  <ul *ngIf="categories">
+    <!-- change the limit to specify the maximum number of listing to show -->
+    <li
+      *ngFor="let c of categories"
+      [routerLink]="['/category', c?.cid]"
+    >
+      <div
+        class="category-image"
+      >
+      </div>
+      <div class="category-detail">
+        <div class="my-row no-wrap">
+          <span>{{c?.name}}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

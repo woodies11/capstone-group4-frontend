@@ -1,0 +1,55 @@
+<!--Created by Andy 6/4/2017-->
+<!--Modified by Woods 27/4/2017-->
+<div *ngIf="product">
+  <h2 id="recent-purchase-label">รายการที่คุณเพิ่งซื้อไป</h2>
+  <div class="same-line-container">
+
+    <div class="same-line-block" id="img-block">
+      <img
+        *ngIf="product.img_urls"
+        src={{product.img_urls[0]}} class="img-responsive center-block">
+    </div>
+
+    <div class="same-line-block" id="description-block">
+      <div id="product-des" class="des">
+        <label id="product-tag" class="tag">สินค้า:</label>
+        <label id="product-name" class="name">{{product.name}}</label>
+        <label id="price">{{product.price}} บาท</label>
+      </div>
+      <div id="basic-des" class="des">
+        <label id="seller-tag" class="tag">ผู้ขาย:</label>
+        <label id="seller-name" class="name">{{product.seller?.name}}</label>
+        <a href="#" id="contact-link">(CONTACT)</a>
+      </div>
+      <div id="review-sec">
+        <div id="star-rating">
+          <rating-star [rate]="product.seller?.rating"></rating-star>
+        </div>
+        <label id="number-review">ได้รับการรีวิวทั้งหมด {{rating_count}} ครั้ง</label>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <div id="star-ins-sec">
+      <label id="star-ins">โปรดให้คะแนนความพึงพอใจของท่านกับการบริการของผู้ขาย</label>
+    </div>
+    <div id="star-input">
+      <rating-star [active]="true" (ratingEmitter)="ratingUpdate($event)"></rating-star>
+    </div>
+  </div>
+
+  <div id="feedback-sec">
+    <div class="">
+      <label id="feedback-instruction">โปรดแสดงความคิดเห็นเพิ่มเติมเกี่ยวกับผู้ขาย</label>
+    </div>
+    <div class="">
+      <textarea type="text" id="feedback-input" [(ngModel)]="feedback" placeholder="ลงคำอธิบายได้ที่นี่..." rows="10"></textarea>
+    </div>
+  </div>
+
+  <div class="">
+    <button type="button" (click)="sendData()" class="btn btn-success" id="btn-send-form">ส่งแบบฟอร์ม</button>
+  </div>
+  <div id="blankspace">
+  </div>
+</div>

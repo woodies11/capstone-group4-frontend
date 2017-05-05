@@ -1,0 +1,171 @@
+<!--
+FIXME: THIS SCREAM F*CK MY LIFEEEEEEEE!
+-->
+<div id="prod-post-app">
+
+  <!--Breadcrumb-->
+  <div id="prod-nav">
+    <h4 id="current-page">หน้าแรก > ลงขาย </h4>
+  </div>
+
+  <!--PRODUCT POSTING DETAIL-->
+  <div class="prod-post-detail">
+    <form (ngSubmit)="onSubmit()" id='prodselling' #prodForm="ngForm">
+      <table class="table-control">
+        <tr>
+          <td class="left-table">
+            <label for="pname" class="label-control">ตั้งชื่อสินค้าที่คุณต้องการขาย</label></td>
+          <td>
+            <input
+              type="text"
+              id="pname"
+              class="form-control"
+              name="pname"
+              required
+              [(ngModel)]="newProduct.name"
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="left-table">
+            <label for="category" class="label-control">เลือกหมวดหมู่ให้ตรงกับสินค้า</label></td>
+          <td>
+            <select
+              id="category"
+              class="form-control"
+              name="category"
+              [(ngModel)]="newProduct.category.cid"
+            >
+              <option value="noption" disabled>กรุณาเลือก</option>
+                <!-- [value] is equal to cid to test for console.log -->
+              <option *ngFor="let c of categories" [value]="c?.cid">{{c?.name}}</option>
+            </select>
+        </tr>
+        <tr>
+          <td class="left-table">
+            <label for="price" class="label-control">ระบุราคาที่เหมาะสม</label>
+          </td>
+          <td>
+            <input
+              type="number"
+              id="price"
+              class="form-control"
+              name="price"
+              [(ngModel)]="newProduct.price"
+            >
+            <label for="price" class="price-label-control">ราคารวมมูลค่าของแถม (ถ้ามี)</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-table">
+            <label for="imgs" class="label-control">รูปภาพสินค้า</label>
+          </td>
+          <td>
+            <input
+              type="file"
+              id="imgs"
+              class="form-control"
+              multiple
+              (change)="fileChange(input)"
+              accept="image/*" #input>
+            <div *ngFor="let data of imgDataURLs;" class="img-preview">
+              <img [attr.src]='data' />
+            </div>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-table">
+            <label for="pro-detail" class="prod-detail-label-control">ใส่รายละเอียดสินค้าให้ครบถ้วน</label>
+          </td>
+          <td>
+            <textarea
+              id="pro-detail"
+              class="pro-detail-form-control"
+              [(ngModel)]="newProduct.description"
+              name="description"
+              required
+            ></textarea>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-table">
+            <label for="deliveryService" class="label-control">ระบบขนส่งสินค้า</label>
+          </td>
+          <td>
+            <select
+              id="deliveryService"
+              class="form-control"
+              [(ngModel)]="newProduct.delivery_options"
+              name="service" required
+            >
+              <option value="noption" disabled>กรุณาเลือก</option>
+              <option *ngFor="let s of services" [value]="s">{{s.name}}</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-table">
+            <label for="province" class="label-control">ระบุพื้นที่ของสินค้า</label>
+          </td>
+          <td>
+            <table class="location-select-control">
+              <tr>
+                <select
+                  id="province"
+                  class="form-control"
+                  [(ngModel)]="newProduct.location.province"
+                  name="province"
+                >
+                  <option value="noption" disabled>เลือกจังหวัด</option>
+                  <option *ngFor="let province of provinces" [value]="province">{{province}}</option>
+                </select>
+              </tr>
+              <tr>
+                <select
+                  id="city"
+                  class="form-control"
+                  [(ngModel)]="newProduct.location.city"
+                  name="city">
+
+                  <option value="noption" disabled>เลือกอำเภอ</option>
+                  <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+                </select>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-table">
+            <label for="contact" class="label-control">เบอร์มือถือ</label>
+          </td>
+          <td>
+            <input
+              type="text"
+              id="contact"
+              class="form-control"
+              [(ngModel)]="newProduct.seller.contact"
+              name="contact"
+              required
+            >
+          </td>
+        </tr>
+        <td class="left-table"></td>
+        <td>
+          <p id="sell-note">คลิกปุ่ม <b>"ลงขาย"</b> เพื่อยอมรับ <a href="https://www.kaidee.com/helps/terms/">ข้อกำหนดและเงื่อนไขการลงประกาศ</a></p>
+        </td>
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="btn-post">Submit</button>
+          </td>
+        </tr>
+
+      </table>
+    </form>
+  </div>
+</div>

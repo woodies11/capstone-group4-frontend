@@ -1,0 +1,65 @@
+<div
+  class="product-detail"
+  *ngIf="selectedProduct"
+>
+  <div class="left">
+    <div
+      class="current-product-image"
+      [ngStyle]="{ 'background-image': 'url(' + selectedImage + ')'}"
+    >
+
+    </div>
+    <div class="carousel">
+      <ul>
+        <li *ngFor="let img of selectedProduct.img_urls"
+            [class.selected]="img===selectedImage"
+        >
+          <div
+            class="img"
+            [ngStyle]="{ 'background-image': 'url(' + img + ')'}"
+            (click)="selectImg(img)"
+          ></div>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="product-info right"
+  >
+    <h3>{{selectedProduct.name}}</h3>
+    <p class="item-number">หมายเลขประกาศ: {{selectedProduct.iid}}</p>
+    <p>ผู้ขาย: <span><a>{{selectedProduct.seller.name}}</a></span></p>
+    <div class="rating"><rating-star [rate]="selectedProduct.seller?.rating"></rating-star></div>
+    <p>จำนวนผู้ให้คะแนน ({{selectedProduct.seller?.rating_count}})</p>
+    <p>{{selectedProduct.location.province}} {{selectedProduct.location.city}}</p>
+    <p>{{selectedProduct.since}}</p>
+
+    <h4>{{selectedProduct.price}} ฿</h4>
+
+    <!-- Disable this button if is owner of the item -->
+    <div class="buy-groups">
+      <button
+        [disabled]="current_uid == product?.seller?.sid"
+        (click)="toChatRoom()"
+      >
+        ซื้อเลย
+      </button>
+      <a>แจ้งประกาศไม่เหมาะสม</a>
+    </div>
+
+  </div>
+
+  <div class="description">
+    <p>
+      {{selectedProduct.description}}
+    </p>
+  </div>
+
+  <recommendation-box></recommendation-box>
+
+</div>
+<div *ngIf="!selectedProduct">
+  <h1>404</h1>
+  <h3>Product Not Found!</h3>
+</div>

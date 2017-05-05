@@ -1,0 +1,82 @@
+.center-buttons {
+  min-height: 350px;
+  max-height: 40%;
+}
+
+.center-buttons .buttons-groups {
+  margin: 0 auto;
+  align-content: center;
+  display: block;
+}
+
+.center-buttons button, .center-buttons a {
+  border: none;
+  position: relative;
+  margin: 0 10px;
+  float: left;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-decoration: none;
+}
+
+.center-buttons .buy {
+  background-image: url("/assets/img/buy-button.png");
+}
+
+.center-buttons .help {
+  border-radius: 50%;
+  background: var(--iris);
+  font-family: Thonburi;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.center-buttons div {
+  align-self: center;
+}
+
+.center-buttons .sell {
+  width: 80px;
+  height: 80px;
+  background-image: url("/assets/img/sell-button.png");
+}
+
+.center-buttons .buy, .center-buttons .help {
+  width: 60px;
+  height: 60px;
+  top: 10px;
+}
+
+@media only screen and (min-width: 500px) {
+  .center-buttons .sell {
+    width: 140px;
+    height: 140px;
+  }
+
+  .center-buttons .buy, .center-buttons .help {
+    width: 110px;
+    height: 110px;
+    top: 15px;
+  }
+
+}
+
+
+/* for centering */
+.ct-flex-cn {
+  display: flex;
+  justify-content: center;
+}
+
+.ct-flex-in {
+  align-self: center;
+}
+
+.center-text {
+  text-align: center;
+}

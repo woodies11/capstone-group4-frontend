@@ -1,0 +1,14 @@
+<!--hidden message for unit test-->
+<h1 style="display: none">{{title}}</h1>
+<!-- Home Page -->
+<!-- Nav Area containing the header, this will be presented in every page -->
+<nav-area id="nav-area"></nav-area>
+
+<!--
+  When ever the browser redirect or the user click on a link within the app,
+  the component inside this <router-outlet> is replaced so no actual page
+  refresh will happen.
+-->
+<div class="main-component fit-screen-height">
+  <router-outlet id="router-outlet"></router-outlet>
+</div>

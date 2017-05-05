@@ -1,0 +1,13 @@
+#router-outlet {
+  z-index: 0;
+}
+
+#nav-area {
+  z-index: 10;
+}
+
+.main-component {
+  max-width: 1080px;
+  margin: 0 auto;
+  /*border: 1px solid gray;*/
+}

@@ -1,0 +1,23 @@
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  color: #858585;
+}
+.rating.active > span:hover:before,
+.rating.active > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+  color: #f2d900;
+}
+
+.rating > span.selected:before,
+.rating > span.selected ~ span:before {
+  content: "\2605";
+  position: absolute;
+  color: #f2d900;
+}

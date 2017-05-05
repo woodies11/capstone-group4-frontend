@@ -1,0 +1,21 @@
+[
+  '{{repeat(200)}}',
+  {
+    iid: '{{objectId()}}',
+    name: '{{firstName()}} {{surname()}}',
+    description: '{{lorem(1, "paragraphs")}}',
+    price: '{{floating(0, 9999999, 0.00)}}',
+    cid: '{{objectId()}}',
+    city: '{{city()}}',
+    province: '{{state()}}',
+    since: '84{{integer(0, 99999, 00000)}}46000',
+    first_name: '{{firstName()}}',
+    last_name: '{{surname()}}',
+    seller_uid: '{{objectId()}}',
+    rating: '{{floating(0, 5, 2)}}',
+    url: [
+      '{{repeat(0, 9)}}',
+      "{{random('/assets/img/dummies/the-grudge.jpg', '/assets/img/dummies/aloha-snack-bar.jpeg', '/assets/img/dummies/lp1.jpg', '/assets/img/dummies/lp2.jpg', '/assets/img/dummies/lp3.jpg', '/assets/img/dummies/lp4.jpg', '/assets/img/dummies/lorempixel.png', '/assets/img/dummies/8-cell-simple.gif', '/assets/img/dummies/lp5.jpg', '/assets/img/dummies/lp6.jpg', '/assets/img/dummies/15866883.jpeg', '/assets/img/dummies/15092403.png')}}"
+    ]
+  }
+]

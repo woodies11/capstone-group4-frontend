@@ -1,0 +1,105 @@
+#prod-post-app{
+    padding: 0;
+    height: 100%;
+}
+
+#prod-nav{
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+#current-page{
+    font-size: 20px;
+}
+.prod-post-detail{
+    margin-top: 2%;
+    margin-left: 15%;
+}
+
+.fcontrol{
+    margin-bottom: 4%;
+}
+.form-control{
+    margin-left :5%;
+    width: 60%;
+}
+
+.table-control{
+    width: 100%;
+
+}
+
+.table-control td {
+    padding-bottom: 2%;
+}
+
+.left-table{
+    text-align: right;
+    width: 30%;
+}
+
+.label-control{
+    text-align: right;
+    font-size: 150%;
+}
+
+.price-form-control{
+    margin-left : 10%;
+    width: 45%;
+    height:32px;
+}
+
+.price-label-control{
+    font-size: 100%;
+    margin-left: 5%;
+}
+
+.price-note-control{
+    float: left;
+    margin-left: 10%;
+}
+
+.prod-detail-label-control{
+    text-align: right;
+    font-size: 150%;
+}
+.pro-detail-form-control{
+    padding-bottom: 130px;
+    margin-left : 5%;
+    height: 150px;
+    width: 60%;
+    font-size: large;
+    overflow: scroll;
+    resize: none;
+}
+
+.location-select-control{
+    margin-left :0%;
+    width: 100%;
+}
+
+.location-select-control #city{
+    margin-top: 5px;
+}
+
+#sell-note{
+    margin-left: 5%;
+    font-size: 18px;
+}
+
+#sell-note b{
+    font-weight: 600;
+}
+.btn-control{
+
+}
+.btn-post{
+    display: block;
+    margin-left:43%;
+}
+
+.img-preview img {
+  background: red;
+  width: 100px;
+  height: 100px;
+}

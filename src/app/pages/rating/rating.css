@@ -1,0 +1,152 @@
+/*
+Created by Andy 6/4/2017
+*/
+
+/* ---------------------- *
+  Layout formatting
+ * ---------------------- */
+
+#star-ins {
+  margin-bottom: 0.7em;
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-left: 5%;
+}
+
+#star-input {
+  margin: 0 auto;
+  width: 40%;
+  font-size: 5em;
+}
+
+
+.same-line-container {
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 2em;
+}
+
+.same-line-block {
+  display: inline-block;
+  height: 30em;
+}
+
+#img-block {
+  float: left;
+  background-color: var(--pinkish-grey);
+  width: 45%;
+  position: relative;
+}
+
+#description-block {
+  float: right;
+  text-align: left;
+  width: 50%;
+}
+
+.des {
+  margin-top: 0.5em;
+}
+
+#blankspace {
+  height: 10em;
+}
+
+/* ---------------------- *
+  Image's formatting
+ * ---------------------- */
+
+.img-responsive {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+ }
+
+/* ---------------------- *
+  Label's formatting
+ * ---------------------- */
+
+#recent-purchase-label {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#price {
+  font-size: 1.2em;
+  margin-left: 1em;
+  color: var(--iris);
+}
+
+#contact-link {
+  font-size: 0.8em;
+  margin-left: 1.5em;
+}
+
+.tag {
+  font-size: 1em;
+  font-weight: lighter;
+  color: var(--warm-grey);
+}
+
+.name {
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+/* ---------------------- *
+  star div
+ * ---------------------- */
+
+#review-sec {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+#star-rating {
+  margin: 0 auto;
+  width: 50%;
+  font-size: 2em;
+}
+
+#number-review {
+  color: var(--warm-grey);
+  font-size: 0.8em;
+  font-weight: lighter;
+}
+
+/* ---------------------- *
+  star div
+ * ---------------------- */
+
+ #btn-send-form {
+   display: block;
+   margin: 0 auto;
+   margin-top: 1.5em;
+ }
+
+#feedback-instruction {
+  margin-top: 1em;
+  margin-bottom: 0.7em;
+  font-size: 1.5em;
+}
+
+#feedback-input {
+  width: 100%;
+  border-radius: 0.5em;
+}
+
+textarea {
+  resize: none;
+  font-size: 1.1em;
+}
+
+#feedback-sec {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+

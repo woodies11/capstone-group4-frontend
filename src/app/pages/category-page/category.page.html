@@ -1,0 +1,18 @@
+<div class="top-bar">
+  <a routerLink="/categories">Back</a><br>
+  <h1>{{category?.name}} ({{count}})</h1>
+
+  <div class="filter">
+    <select id="location">
+      <option disabled>ทุกจังหวัด</option>
+      <option disabled>-</option>
+    </select>
+    <select id="price">
+      <option disabled>ราคา</option>
+      <option disabled>-</option>
+    </select>
+  </div>
+
+</div>
+
+<catalogue-component [ITEM_LIMIT]="40" [products]="products"></catalogue-component>

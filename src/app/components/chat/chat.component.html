@@ -1,0 +1,158 @@
+<!--
+  Created by Woods and SaiRung on 27/3/17.
+-->
+<div id="chat-app">
+
+  <!-- LEFT SIDE -->
+
+  <div id="chat-left-side" class="right-border">
+    <div class="chat-top-section">
+    </div>
+
+    <div *ngIf="conversationList">
+      <div
+        class="chat-conversation"
+        *ngFor= "let c of conversationList"
+        (click)="showSelected(c)"
+        [class.selected]="c === selectedConvo"
+      >
+        <div class ="prof-pic">
+          <img
+            *ngIf="c.profile_pic"
+            class="prof-circle" src="{{c.profile_pic}}"
+          >
+        </div>
+        <div class="chat-info">
+          <div class="cinfo">
+            <p id="chatter">{{ c.sender_name }}</p>
+            <p id="messages">{{c.msg}}</p>
+            <p id="time">{{c.timestamp}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+
+  <div id="chat-right-side" class="full-height">
+    <div class="chat-top-section">
+
+      <div id="seller-profile" class="right-border top-section-block">
+
+        <div id="profile-img" class="rounded-img">
+          <img
+            class="prof-circle" src="{{selectedConvo?.profile_pic}}"
+          >
+        </div>
+
+        <div id="seller-info" class="">
+          <!--Prevent error when nothing is selected-->
+          <span
+            *ngIf="(selectedConvo!==null)&&(selectedConvo!=='undefined')"
+          >{{ selectedConvo.sender_name }}</span>
+          <div
+            *ngIf="current_uid == selectedConvo?.buyer_uid"
+            id="star-rating"
+          >
+            <rating-star [rate]="selectedProduct?.seller?.rating"></rating-star>
+          </div>
+        </div>
+
+        <div class="center-horizontal left-padding seller-buttons">
+          <button
+            *ngIf="current_uid == selectedConvo?.buyer_uid"
+            class="btn-rect" [routerLink]="['/rating', selectedProduct?.iid]"
+          >
+            ให้คะแนน
+          </button>
+          <button class="btn-rect">จัดการ</button>
+        </div>
+
+      </div> <!-- seller-profile -->
+
+      <div id="item-detail" class="top-section-block" *ngIf="selectedProduct">
+        <div class="product-image">
+          <img
+            *ngIf="selectedProduct.img_urls"
+            src="{{selectedProduct.img_urls[0]}}"
+          >
+        </div>
+        <div class="float-right">
+          <h4> {{selectedProduct.name}} </h4>
+          <span> {{selectedProduct.price}} บาท </span>
+        </div>
+      </div> <!-- item-detail -->
+
+    </div> <!-- chat-top-section -->
+
+
+    <div #scrollMe id="chat-box">
+      <ul>
+        <li *ngFor="let m of messages">
+          <div
+            class="wrapper"
+            [ngClass]="[m.sender == current_uid ? 'sent' : 'received']"
+          >
+            <div class="chat-bubble-wrapper">
+              <div class="chat-bubble">
+                <!--Normal Message-->
+                <div *ngIf="m.flag == 0">{{m.message}}</div>
+                <!--Rating Form -->
+                <div *ngIf="m.flag == 1" class="rating-request">
+                  ช่วยให้คะแนนด้วยครับ/คะ!
+                  <rating-star [active]="current_uid == selectedConvo.buyer_uid" (ratingEmitter)="sendRating($event)"></rating-star>
+                </div>
+                <!--Delivery Form-->
+                <div *ngIf="m.flag == 2" class="form-request"
+                     (click)="formClicked()"
+                >
+                  กรุณากรอกข้อมูล
+                  <img src="http://is2.mzstatic.com/image/thumb/Purple111/v4/c2/62/01/c2620153-7347-6db4-3f9e-5bc05be1e503/source/175x175bb.jpg">
+                </div>
+              </div>
+            </div>
+            <span class="time-tag">
+              {{m.timestamp | date: 'hh:mm a'}}
+            </span>
+          </div>
+        </li>
+      </ul>
+
+    </div> <!-- chat box -->
+
+    <!--
+      TODO: center input box vertically
+      TODO: scroll to bottom upon message sent
+      FIXME: chat-box overlapping with top-section on small screen
+    -->
+
+    <div class="bottom-bar-container">
+      <div class="bottom-bar center-horizontal">
+        <div class="dropdown" [class.show]="isMenuExpanded">
+          <button disabled>ส่งรูปภาพ</button>
+          <div
+            *ngIf="current_uid == selectedConvo?.seller_uid"
+            class="seller-forms-request"
+          >
+            <button (click)="requestRating()">ขอคะแนน (rating)</button>
+            <button (click)="sendDeliveryForm()">ส่งแบบฟอร์ม Kerry Express</button>
+            <button disabled>ส่งแบบฟอร์ม XYZ</button>
+          </div>
+        </div>
+        <button id="btn-menu" class="btn-rect" (click)="toggleMenu()">
+          menu
+        </button>
+        <input
+          id="message-box"
+          class="" type="text"
+          placeholder="พิมพ์ข้อความ..."
+          [(ngModel)]="chatMessageInput"
+          (keydown.enter)="sendMessage(chatMessageInput)"
+        >
+        <button id="btn-send" class="btn-rect" (click)="sendMessage(chatMessageInput)">send</button>
+      </div>
+    </div>
+
+  </div> <!-- chat-right-side -->
+</div>
